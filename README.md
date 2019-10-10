@@ -6,7 +6,7 @@ Most code taken from https://github.com/agethen/dense-flow, with changes to remo
 ## Prerequisites
 You need to compile opencv with opencv-contrib with CUDA.
 
-On Ubuntu 18.04, after cloning the opencv and opencv-contribs from github, I ran (change cloned-opencv-directory and path-to/opencv_contrib/modules to the path to your cloned opencv directory and the path to your opencv-contrib modules directory, respectively)
+On Ubuntu 18.04, after cloning the opencv and opencv-contribs from github, I ran 
 
 ```
 cd cloned-opencv-directory
@@ -15,6 +15,8 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_CUD
 make -j6
 make install
 ```
+
+(change cloned-opencv-directory and path-to/opencv_contrib/modules to the path to your cloned opencv directory and the path to your opencv-contrib modules directory, respectively)
 
 ## Building
 Edit Makefile with your opencv include and library directories, then run
@@ -26,6 +28,7 @@ make
 
 ## Running
 The executable takes the following arguments:
+```
 -f --vidFile    filename of video
 -o --outFolder  output folder - rbg saved in outFolder/rgb/, flow saved in outFolder/flow_x and outFolder/flow_y
 -r --resize     resize video so that smaller of width and height is this number of pixels, with bilinear interpolation and preserving aspect ratio. set <=0 for no resize (Default = 256)
@@ -33,6 +36,7 @@ The executable takes the following arguments:
 -t --type       optical flow algorithm (0 = Farneback, 1 = TVL1, 2 = Brox). (Default = 1)
 -d --device_id  gpu id to use (Default = 0)
 -s step         number of frames to skip when saving optical flow and rgb frames (Default = 1)
+```
 
 Typical usage example:
 ```
