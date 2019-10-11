@@ -98,9 +98,6 @@ void ProcessClip( Video & v, toolbox::IOManager & io_manager, const int type, co
     }
 
     counter++;
-
-    //write RGB image
-    io_manager.WriteImg( clip[0].second, counter );
     
     for( int i = 0; i < flow_span.size(); i++ ){
       int span = flow_span[i];
@@ -117,6 +114,9 @@ void ProcessClip( Video & v, toolbox::IOManager & io_manager, const int type, co
 
       //compute flow and convert to 8 bit images
       ComputeFlow( grey_first, grey_second, type, bound, flow_x, flow_y);
+
+      //write RGB image
+      io_manager.WriteImg( clip[0].second, counter );
 
       //write flow images
       io_manager.WriteFlow(flow_x, flow_y, counter);
