@@ -10,7 +10,7 @@ On Ubuntu 18.04, after cloning the opencv and opencv-contribs from github, I ran
 
 ```
 cd cloned-opencv-directory
-mkdir build
+mkdir build && cd build
 cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_CUDA=ON -D CMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -D ENABLE_FAST_MATH=1 -D CUDA_FAST_MATH=1 -D WITH_CUBLAS=1 -D INSTALL_PYTHON_EXAMPLES=ON -D OPENCV_EXTRA_MODULES_PATH=path-to/opencv_contrib/modules -D BUILD_EXAMPLES=ON ..
 make -j6
 make install
